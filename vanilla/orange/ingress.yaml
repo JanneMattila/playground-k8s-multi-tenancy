@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: orange-ingress
+  namespace: orange
+  annotations:
+    kubernetes.io/ingress.class: nginx-orange
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: orange-front-svc
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
