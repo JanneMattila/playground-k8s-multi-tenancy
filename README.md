@@ -27,6 +27,8 @@ Playground for Kubernetes different multi-tenancy options
 - Monitoring: App vs. Cluster
 - [Role-based access control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
   - Define roles: From Cluster admin to User
+- [Assigning Pods to Nodes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
+- [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
 - [Network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
   - [Network policy options in AKS](https://docs.microsoft.com/en-us/azure/aks/use-network-policies#network-policy-options-in-aks)
 - [Resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
