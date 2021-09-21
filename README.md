@@ -12,6 +12,8 @@ Playground for Kubernetes different multi-tenancy options
   - Different companies or customers
 - Non-Prod vs. Prod
 - Cost
+- [GitOps](https://www.weave.works/technologies/gitops/)
+  - [Flux](https://fluxcd.io/)
 - Business criticality: High vs. low
 - Cluster management
   - Operational tasks
@@ -31,11 +33,13 @@ Playground for Kubernetes different multi-tenancy options
 - Others
   - [Hierarchical Namespaces](https://kubernetes.io/blog/2020/08/14/introducing-hierarchical-namespaces/)
     - [The Hierarchical Namespace Controller (HNC)](https://github.com/kubernetes-sigs/hierarchical-namespaces)
+  - [kiosk](https://github.com/loft-sh/kiosk)
   - [Capsule](https://capsule.clastix.io/)
   - [Virtual Kubernetes Clusters](https://www.vcluster.com/docs/what-are-virtual-clusters)
 
 ### References
 
+- [Multi-Tenancy in Kubernetes: Best Practices Today, and Future Directions](https://www.youtube.com/watch?v=xygE8DbwJ7c)
 - [Three Tenancy Models For Kubernetes](https://kubernetes.io/blog/2021/04/15/three-tenancy-models-for-kubernetes/)
 - [Cluster multi-tenancy](https://cloud.google.com/kubernetes-engine/docs/concepts/multitenancy-overview)
 - [Multi-Tenant Clusters with Hierarchical Namespaces](https://www.youtube.com/watch?v=j5x6NumP21c)
