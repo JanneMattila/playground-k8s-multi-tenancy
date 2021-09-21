@@ -40,7 +40,7 @@ echo $identityid
 az aks get-versions -l $location -o table
 
 az aks create -g $resourceGroupName -n $aksName \
- --zones "1" --max-pods 150 --network-plugin kubenet \
+ --zones "1" --max-pods 150 --network-plugin azure \
  --node-count 1 --enable-cluster-autoscaler --min-count 1 --max-count 3 \
  --node-osdisk-type Ephemeral \
  --node-vm-size Standard_D8ds_v4 \
@@ -62,11 +62,6 @@ az aks get-credentials -n $aksName -g $resourceGroupName
 
 kubectl get nodes
 
-kubectl apply -f **/*.yaml
-
-kubectl get all -n banana
-kubectl get all -n orange
-
 #------------------------------------------------------------------------------
 
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | sudo bash
@@ -78,29 +73,36 @@ helm install banana-nginx-ingress ingress-nginx/ingress-nginx \
   --create-namespace --namespace "banana" \
   --set controller.replicaCount=2 \
   --set controller.ingressClass="nginx-banana" \
-  --set controller.useIngressClassOnly="nginx-drupal" \
+  --set controller.useIngressClassOnly=true \
   --set controller.replicaCount=2 \
-  --set controller.nodeSelector."kubernetes\.io/os"=linux \
-  --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux
+  --set controller.nodeSelector."kubernetes\.io/os"=linux
+
+kubectl get services banana-nginx-ingress-ingress-nginx-controller -o wide -n banana
+kubectl describe services banana-nginx-ingress-ingress-nginx-controller -n banana
 
 helm install orange-nginx-ingress ingress-nginx/ingress-nginx \
   --create-namespace --namespace "orange" \
   --set controller.replicaCount=2 \
   --set controller.ingressClass="nginx-orange" \
-  --set controller.useIngressClassOnly="nginx-drupal" \
+  --set controller.useIngressClassOnly=true \
   --set controller.replicaCount=2 \
-  --set controller.nodeSelector."kubernetes\.io/os"=linux \
-  --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux
+  --set controller.nodeSelector."kubernetes\.io/os"=linux
 
+kubectl get services orange-nginx-ingress-ingress-nginx-controller -o wide -n orange
+kubectl describe services orange-nginx-ingress-ingress-nginx-controller -n orange
 
-kubectl get services nginx-ingress-ingress-nginx-controller -o wide -n orange
-kubectl describe services nginx-ingress-ingress-nginx-controller -n orange
-
+k get all -n default
 # To remove installation:
 helm uninstall banana-nginx-ingress --namespace banana
 helm uninstall orange-nginx-ingress --namespace orange
 
 #------------------------------------------------------------------------------
+
+kubectl apply -f banana/*.yaml
+kubectl apply -f orange/*.yaml
+
+kubectl get all -n banana
+kubectl get all -n orange
 
 # Wipe out the resources
 az group delete --name $resourceGroupName -y
