@@ -20,6 +20,8 @@ Playground for Kubernetes different multi-tenancy options
   - Monitoring
   - Cluster upgrades
   - Application manifest updates
+- [Azure Kubernetes Service (AKS) considerations for multitenancy](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/service/aks)
+- [Multi-tenancy](https://kubernetes.io/docs/concepts/security/multi-tenancy/)
 - [Extending Kubernetes](https://kubernetes.io/docs/concepts/extend-kubernetes/)
   - [Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
   - [Custom Resource Definitions (CRDs)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions)
@@ -38,6 +40,9 @@ Playground for Kubernetes different multi-tenancy options
   - [kiosk](https://github.com/loft-sh/kiosk)
   - [Capsule](https://capsule.clastix.io/)
   - [Virtual Kubernetes Clusters](https://www.vcluster.com/docs/what-are-virtual-clusters)
+  - [Kata Containers](https://katacontainers.io/)
+    - [Preview support for Kata VM Isolated Containers on AKS for Pod Sandboxing](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/preview-support-for-kata-vm-isolated-containers-on-aks-for-pod/ba-p/3751557)
+    - [Aligning with Kata Confidential Containers to achieve zero trust operator deployments with AKS](https://techcommunity.microsoft.com/t5/azure-confidential-computing/aligning-with-kata-confidential-containers-to-achieve-zero-trust/ba-p/3797876)
 
 ### References
 
